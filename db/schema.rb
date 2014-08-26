@@ -10,11 +10,35 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321144528) do
+ActiveRecord::Schema.define(version: 20140826211002) do
 
-  create_table "users", force: true do |t|
-    t.string "name"
-    t.string "email"
+  create_table "activities", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "activities_recipes", force: true do |t|
+    t.integer "activity_id"
+    t.integer "recipe_id"
+  end
+
+  create_table "course_types", force: true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "recipes", force: true do |t|
+    t.string   "name"
+    t.string   "ingredient"
+    t.string   "directions"
+    t.string   "images_url"
+    t.integer  "total_time"
+    t.integer  "prep_time"
+    t.integer  "course_type_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
 end

@@ -6,6 +6,13 @@ Rake::Task["db:create"].clear
 Rake::Task["db:drop"].clear
 
 # NOTE: Assumes SQLite3 DB
+
+desc "reset the database"
+task "db:reset" do
+  rm_f 'db/db.sqlite3'
+  touch 'db/db.sqlite3'
+end
+
 desc "create the database"
 task "db:create" do
   touch 'db/db.sqlite3'
